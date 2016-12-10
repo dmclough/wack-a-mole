@@ -1,0 +1,15 @@
+#container {
+  border: 1px solid green;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#table {
+  border: 1px solid red;
+  height: 75px;
+  width: 200px;
+  position: absolute;
+  bottom: 150px;
+  left: 75px;
+}
