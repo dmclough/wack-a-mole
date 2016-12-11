@@ -18,7 +18,7 @@ function printTime() {
   console.log(time);
 }
 
-console.log("checking if commit works");
+console.log("checking if commit works second time");
 
 
 //create a timer that runs at a set interval
