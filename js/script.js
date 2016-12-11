@@ -1,24 +1,29 @@
 
+
 $( document ).ready(function() {
     console.log( "document is ready!" );
 
-    // Attempted to hide the instructions on button click
-    // $("#playGame").click(function() {
-    //   $("#introInfo").slideUp();
-    // });
-
     setInterval(printTime, 1000);
 
+
 });
-var time = 30; //initializes the start time
+
+var time = 3; //initializes the start time
 
 function printTime() {
   time -= 1;
   $( "#timeRemaining" ).text( "Time remaining:" + time );
   console.log(time);
+  showMole();
 }
 
-console.log("checking if commit works second time");
+
+
+function showMole() {
+  var mole1Position = Math.round(Math.random()*16);
+  console.log("mole position 1: " + mole1Position);
+  return mole1Position;
+}
 
 
 //create a timer that runs at a set interval
