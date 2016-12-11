@@ -1,15 +1,27 @@
-#container {
+#landingContainer {
+  border: 1px solid green;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.moleHole {
+  display: inline-block;
+  border: 1px solid blue;
+  width: 120px;
+  height: 40px;
+}
+
+
+#mole1Show {
   border: 1px solid green;
   height: 300px;
   width: 300px;
   margin: 0 auto;
 }
 
-#table {
-  border: 1px solid red;
-  height: 75px;
-  width: 200px;
-  position: absolute;
-  bottom: 150px;
-  left: 75px;
+#mole1Hide {
+  border: 1px solid green;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
 }
