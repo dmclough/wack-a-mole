@@ -5,7 +5,8 @@
 }
 
 .moleHide {
-  display: inline-block;
+  /*display: inline-block;*/
+  float: left;
   border: 1px solid blue;
   width: 120px;
   height: 40px;
