@@ -21,6 +21,7 @@ $( document ).ready(function() {
     function gameOverCheck() {
       if (time <= 0) {
         clearInterval(countDown);
+        document.getElementById(mole1Position).innerHTML = "";
         currentPlayer = 2;
         console.log(currentPlayer);
       } else {
@@ -35,10 +36,9 @@ $( document ).ready(function() {
     function showMole() {
       var mole1Position = Math.round(Math.random()*15);
       console.log("mole 1 position: " + mole1Position);
-      document.getElementById(mole1Position).innerHTML = "<button onclick='score()'>Mole!</button>";
-      // setTimeout(hideMoles(mole1Position), hideDelay);
+      document.getElementById(mole1Position).innerHTML = '<img src="img/mole.jpeg" alt="mole image" style="width:42px;height:42px;border:0" onclick="score()">';
+      //Old button: "<button onclick='score()'>Mole!</button>";
 
-      // hideMoles(mole1Position);
       hideMoles(mole1Position);
       return mole1Position;
     }
