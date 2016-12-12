@@ -1,24 +1,30 @@
 $( document ).ready(function() {
     console.log("document is ready");
 
-    var initialTime = 30;
+    var initialTime = 5;
     time = initialTime;
     var showInterval = 1000;
     var countdown;
+    var mole1Position;
     player1Score = 0;
     player2Score = 0;
     currentPlayer = 1; //player one starts
 
     countDown = setInterval(tick, showInterval);
 
+    function showInstructionState() {
+
+    }
+
+
     function tick() {
       time--;
       console.log(time);
       document.getElementById('timeRemaining').textContent = "Time remaining: " +time;
-      gameOverCheck();
+      gameOverCheck(time);
     }
 
-    function gameOverCheck() {
+    function gameOverCheck(time) {
       if (time <= 0) {
         endGame();
       } else {
@@ -32,16 +38,35 @@ $( document ).ready(function() {
         $("#mole"+mole1Position).removeClass("moleShow");
         $("#mole"+mole1Position).addClass("moleGrass");
       }
-      if (currentPlayer == 1) {
+      if (currentPlayer === 1) {
         currentPlayer = 2;
-
-        //alert("player 2 turn"); //confirm, allows yes or no . Jquery dialog http://jqueryui.com/dialog/#modal-confirmation
-
-        tick();// restart the interval and then give it function tick
+        startPlayer2();
+      } else {
+        checkWinner();
       }
-      // currentPlayer = 2;
       return currentPlayer;
     }
+
+    //alert("player 2 turn"); //confirm, allows yes or no . Jquery dialog http://jqueryui.com/dialog/#modal-confirmation
+
+    // tick();// restart the interval and then give it function tick
+
+    function startPlayer2() {
+      alert("player 2's turn");
+      time = initialTime;
+      countDown = setInterval(tick, showInterval);
+    }
+
+    function checkWinner() {
+      if (player1Score > player2Score) {
+        alert("player 1 wins!");
+        } else if (player2Score > player1Score) {
+          alert("player 2 wins!");
+        } else {
+          alert("it's a tie!");
+        }
+      }
+
 
     $( "#molePatch" ).children().click(function() {
       if ( $( this ).hasClass( "moleShow" ) ) {
