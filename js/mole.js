@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
     var initialTime = 30;
     time = initialTime;
-    var showInterval = 1000;
+    var showInterval = 500;
     var countdown;
     player1Score = 0;
     player2Score = 0;
@@ -44,7 +44,7 @@ $( document ).ready(function() {
     }
 
     function hideMoles(mole1Position) {
-      var hideDelay = 1100;
+      var hideDelay = 3000;
       setTimeout(function() {
         document.getElementById(mole1Position).innerHTML = "";
       }, hideDelay);
@@ -54,7 +54,8 @@ $( document ).ready(function() {
 
 
 
-    function score() {
+    function score(mole1Position) {
+      // document.getElementById(this).innerHTML = "";
       if (currentPlayer === 1) {
         player1Score++;
         document.getElementById('play1Score').textContent = "Player 1: "+player1Score;
