@@ -1,25 +1,29 @@
 #landingContainer {
-  border: 1px solid green;
+  border: 1px solid red;
   width: 500px;
   margin: 0 auto;
 }
 
-.moleHide {
+.moleGrass {
   /*display: inline-block;*/
   float: left;
-  border: 1px solid blue;
   width: 120px;
   height: 40px;
   background-color: green;
 }
 
 .moleShow {
-  display: inline-block;
-  border: 1px solid blue;
+  float: left;
   width: 120px;
   height: 40px;
+  /*display: inline-block;
+  width: 120px;
+  height: 40px; */
   background-color: red;
-  background-image: ("img/Funny-mole.jpg");
+  background-size: 80px 60px;
+  background-repeat: no-repeat;
+  background-image: url("../img/mole.jpeg")
+
 }
 
 .score {

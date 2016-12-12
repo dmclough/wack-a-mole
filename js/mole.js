@@ -28,41 +28,34 @@ $( document ).ready(function() {
 
     function endGame() {
       clearInterval(countDown);
-      for (i = 0; i <15; i++) {
+      for (i = 0; i <16; i++) {
         document.getElementById(i).innerHTML = "";
       }
-      currentPlayer = 2;
+      if (currentPlayer == 1) {
+        currentPlayer = 2;
+        //alert("player 2 turn"); //confirm, allows yes or no . Jquery dialog http://jqueryui.com/dialog/#modal-confirmation
+
+        tick();// restart the interval and then give it function tick
+      }
+      // currentPlayer = 2;
       console.log(currentPlayer);
       return currentPlayer;
     }
 
+    // $( "#molePatch" ).children().click(function() {
+    //     $( "#"+this.id ).hasClass( "moleShow" );
+    //     console.log("howdy");
+    //     alert( "Handler for .click() called." );
+    // });
 
-});
+    $( "#molePatch" ).children().click(function() {
+      if ( $( this ).hasClass( "moleShow" ) ) {
+        console.log("you wacked a mole");
+        incrementScore();
+      }
+    });
 
-    //this function shows the mole
-    function showMole() {
-      var mole1Position = Math.round(Math.random()*15);
-      console.log("mole 1 position: " + mole1Position);
-      document.getElementById(mole1Position).innerHTML = '<img src="img/mole.jpeg" alt="mole image" style="width:42px;height:42px;border:0" onclick="score()">';
-      //Old button: "<button onclick='score()'>Mole!</button>";
-
-      hideMoles(mole1Position);
-      return mole1Position;
-    }
-
-    function hideMoles(mole1Position) {
-      var hideDelay = 3000;
-      setTimeout(function() {
-        document.getElementById(mole1Position).innerHTML = "";
-      }, hideDelay);
-    }
-
-
-
-
-
-    function score(mole1Position) {
-      // document.getElementById(this).innerHTML = "";
+    function incrementScore() {
       if (currentPlayer === 1) {
         player1Score++;
         document.getElementById('play1Score').textContent = "Player 1: "+player1Score;
@@ -70,5 +63,49 @@ $( document ).ready(function() {
         player2Score++;
         document.getElementById('play2Score').textContent = "Player 2: "+player2Score;
       }
-      console.log("player 1 score:" + player1Score);
     }
+
+//Start document ready brackets
+});
+//End document ready brackets
+
+
+    //this function shows the mole
+    function showMole() {
+      var mole1Position = Math.round(Math.random()*15);
+      // console.log("mole 1 position: " + mole1Position);
+      $("#mole"+mole1Position).addClass("moleShow");
+      $("#mole"+mole1Position).removeClass("moleGrass");
+      hideMoles(mole1Position);
+      return mole1Position;
+    }
+
+    function hideMoles(mole1Position) {
+      var hideDelay = Math.random()*2000 + 500;
+      setTimeout(function() {
+        $("#mole"+mole1Position).removeClass("moleShow");
+        $("#mole"+mole1Position).addClass("moleGrass");
+      }, hideDelay);
+    }
+
+
+
+
+
+    // function score(mole1Position) {
+    //   $('#'+mole1Position).click(function() {
+    //       $(this).removeClass('moleShow');
+    //       $(this).addClass('moleGrass');
+    //   });
+    //
+    //
+    //
+    //   if (currentPlayer === 1) {
+    //     player1Score++;
+    //     document.getElementById('play1Score').textContent = "Player 1: "+player1Score;
+    //   } else {
+    //     player2Score++;
+    //     document.getElementById('play2Score').textContent = "Player 2: "+player2Score;
+    //   }
+    //   console.log("player 1 score:" + player1Score);
+    // }
