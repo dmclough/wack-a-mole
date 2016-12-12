@@ -21,10 +21,15 @@ $( document ).ready(function() {
 
 });
 
-//this function shows the mole if 
+//this function shows the mole
 function showMole() {
   var mole1Position = Math.round(Math.random()*15);
   console.log("mole 1 position: " + mole1Position);
   document.getElementById(mole1Position).className = "moleShow";
+  setTimeout(hideMoles, 1000);
   return mole1Position;
+}
+
+function hideMoles() {
+  document.getElementById(mole1Position).className = "moleHide";
 }
