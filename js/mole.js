@@ -1,9 +1,9 @@
 $( document ).ready(function() {
     console.log("document is ready");
 
-    var initialTime = 30;
+    var initialTime = 5;
     time = initialTime;
-    var showInterval = 500;
+    var showInterval = 1000;
     var countdown;
     player1Score = 0;
     player2Score = 0;
@@ -20,13 +20,20 @@ $( document ).ready(function() {
 
     function gameOverCheck() {
       if (time <= 0) {
-        clearInterval(countDown);
-        document.getElementById(mole1Position).innerHTML = "";
-        currentPlayer = 2;
-        console.log(currentPlayer);
+        endGame();
       } else {
         showMole();
       }
+    }
+
+    function endGame() {
+      clearInterval(countDown);
+      for (i = 0; i <15; i++) {
+        document.getElementById(i).innerHTML = "";
+      }
+      currentPlayer = 2;
+      console.log(currentPlayer);
+      return currentPlayer;
     }
 
 
