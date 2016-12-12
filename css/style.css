@@ -17,21 +17,6 @@
   border: 1px solid blue;
   width: 120px;
   height: 40px;
-  background-color: brown;
+  background-color: red;
   background-image: ("img/Funny-mole.jpg");
-}
-
-
-#mole1Show {
-  border: 1px solid green;
-  height: 300px;
-  width: 300px;
-  margin: 0 auto;
-}
-
-#mole1Hide {
-  border: 1px solid green;
-  height: 300px;
-  width: 300px;
-  margin: 0 auto;
 }

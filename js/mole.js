@@ -4,6 +4,8 @@ $( document ).ready(function() {
     var initialTime = 30;
     time = initialTime;
     var countdown;
+    player1Score = 0;
+    player2Score = 0;
 
     countDown = setInterval(tick, 1000);
 
@@ -25,11 +27,16 @@ $( document ).ready(function() {
 function showMole() {
   var mole1Position = Math.round(Math.random()*15);
   console.log("mole 1 position: " + mole1Position);
-  document.getElementById(mole1Position).className = "moleShow";
-  setTimeout(hideMoles, 1000);
+  document.getElementById(mole1Position).innerHTML = "<button onclick='score()'>Mole!</button>";
   return mole1Position;
 }
 
 function hideMoles() {
   document.getElementById(mole1Position).className = "moleHide";
+}
+
+function score() {
+  player1Score++;
+  console.log("player 1 score:" + player1Score);
+
 }
