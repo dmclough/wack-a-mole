@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     console.log("document is ready");
 
-    var initialTime = 5;
+    var initialTime = 20;
     time = initialTime;
     var showInterval = 250;
     var countdown;
@@ -51,6 +51,7 @@ $( document ).ready(function() {
       if (currentPlayer === 1) {
         currentPlayer = 2;
         $('#dialog-player1Result').dialog('open');
+          $( "#dialog-player1Result" ).text("Player 2's Turn: Go get 'em gophers, ya great git! The little brown furry rodents!");
       } else {
         $('#dialog-finalGameResult').dialog('open');
         checkWinner();
@@ -69,11 +70,15 @@ $( document ).ready(function() {
     function checkWinner() {
       if (player1Score > player2Score) {
         console.log("player 1 wins!");
+        $( "#dialog-finalGameResult" ).text("Player 1 Wins--Great big globs of greasy, grimy, gopher guts!");
+
         } else if (player2Score > player1Score) {
           console.log("player 2 wins!");
-
+          $( "#dialog-finalGameResult" ).text("Player 2 Wins--Great big globs of greasy, grimy, gopher guts!");
         } else {
           console.log("It's a tie!");
+          $( "#dialog-finalGameResult" ).text("Time for a shoot out! Tie Game.");
+
         }
       }
 
@@ -100,7 +105,7 @@ $( document ).ready(function() {
 
     //this function shows the mole
     function showMole() {
-      if (Math.random() > .05 ) {
+      if (Math.random() > 0.5 ) {
         var mole1Position = Math.round(Math.random()*15);
         // console.log("mole 1 position: " + mole1Position);
         $("#mole"+mole1Position).addClass("moleShow");
@@ -113,7 +118,7 @@ $( document ).ready(function() {
     }
 
     function hideMoles(mole1Position) {
-      var hideDelay = Math.random()*500 + 500;
+      var hideDelay = Math.random()*2000 + 500;
       setTimeout(function() {
         $("#mole"+mole1Position).removeClass("moleShow");
         $("#mole"+mole1Position).addClass("moleGrass");
@@ -136,6 +141,9 @@ $( document ).ready(function() {
         }
       });
     } );
+
+    // $( "#dialog-instructions" ).text("asdf asdf");
+
 
     $( function() {
     $( "#dialog-player1Result" ).dialog({
