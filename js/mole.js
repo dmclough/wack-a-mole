@@ -6,7 +6,6 @@ $( document ).ready(function() {
     var showInterval = 1000;
     var countdown;
     var mole1Position;
-    var winner;
     player1Score = 0;
     player2Score = 0;
     currentPlayer = 1; //player one starts
@@ -17,12 +16,10 @@ $( document ).ready(function() {
        modal: true,
        buttons: [
         {
-          text: "Player 1 is ready!",
+          text: "I'm Ready to Play!",
           click: function() {
             $( this ).dialog( "close" );
-            startGame();
-            // $( this ).on( "dialogclose", function( event, ui ) {} );
-            //  $( this ).dialog( startGame());
+            $( this ).dialog( startGame());
           }
         }
       ]
@@ -33,24 +30,10 @@ $( document ).ready(function() {
        modal: true,
        buttons: [
         {
-          text: "Player 2 is Ready!",
+          text: "Play 1 score" + player1Score,
           click: function() {
             $( this ).dialog( "close" );
-            startPlayer2();
-          }
-        }
-      ]
-    });
-
-    $( "#finalScoreDialog" ).dialog({
-       autoOpen: false,
-       modal: true,
-       buttons: [
-        {
-          text: "Replay" ,
-          click: function() {
-            $( this ).dialog( "close" );
-            startGame();
+            $( this ).dialog( startPlayer2()); 
           }
         }
       ]
@@ -61,7 +44,6 @@ $( document ).ready(function() {
     });
 
     function startGame(){
-      console.log("game started");
       countDown = setInterval(tick, showInterval);
     }
 
@@ -111,15 +93,12 @@ $( document ).ready(function() {
 
     function checkWinner() {
       if (player1Score > player2Score) {
-          winner = "Player 1";
-          // alert("player 1 wins!");
+        alert("player 1 wins!");
         } else if (player2Score > player1Score) {
-          // winner = "Player 2";
+          alert("player 2 wins!");
         } else {
-          winner = "It's a Tie";
-          // alert("it's a tie!");
+          alert("it's a tie!");
         }
-        return winner;
       }
 
 
