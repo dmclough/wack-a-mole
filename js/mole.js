@@ -1,23 +1,23 @@
 $( document ).ready(function() {
     console.log("document is ready");
 
-    var INITIAL_TIME = 20;
+    var INITIAL_TIME = 6;
     var time = INITIAL_TIME;
     var SHOW_INTERVAL = 250;
     var countdown;
-    var mole1Position;
+    // var mole1Position;
     player1Score = 0;
     player2Score = 0;
     currentPlayer = 1; //player one starts
-    document.getElementById('timeRemaining').textContent = "Time remaining: " +time;
+    document.getElementById("timeRemaining").textContent = "Time remaining: " +time;
 
     function resetGame() {
       time = INITIAL_TIME;
       player1Score = 0;
       player2Score = 0;
       currentPlayer = 1;
-      document.getElementById('play1Score').textContent = "Player 1 Score: "+player1Score;
-      document.getElementById('play2Score').textContent = "Player 2 Score: "+player2Score;
+      document.getElementById("play1Score").textContent = "Player 1 Score: "+player1Score;
+      document.getElementById("play2Score").textContent = "Player 2 Score: "+player2Score;
     }
 
     function startGame() {
@@ -26,8 +26,8 @@ $( document ).ready(function() {
 
     function tick() {
       time = time - 0.250; //only subtracts 0.250 becuase interval runs 4x per second.
-      console.log(time);
-      document.getElementById('timeRemaining').textContent = "Time remaining: " + Math.round(time);
+      // console.log(time);
+      document.getElementById("timeRemaining").textContent = "Time remaining: " + Math.round(time);
       gameOverCheck(time);
     }
 
@@ -45,31 +45,31 @@ $( document ).ready(function() {
       $("#molePatch div").addClass("MoleGrass");
       if (currentPlayer === 1) {
         currentPlayer = 2;
-        $('#dialog-player1Result').dialog('open');
-        $( "#dialog-player1Result" ).text("Player 2's Turn: Go get 'em gophers, ya great git! The little brown furry rodents!");
+        $("#dialog-player1Result").dialog("open");
+        $("#dialog-player1Result" ).text("Go get 'em gophers, ya great git! The little brown furry rodents!");
       } else {
-        $('#dialog-finalGameResult').dialog('open');
+        $("#dialog-finalGameResult").dialog("open");
         checkWinner();
       }
       return currentPlayer;
     }
 
     function startPlayer2() {
-      console.log("player 2's turn");
+      // console.log("player 2's turn");
       time = INITIAL_TIME;
       countDown = setInterval(tick, SHOW_INTERVAL);
     }
 
     function checkWinner() {
       if (player1Score > player2Score) {
-        console.log("player 1 wins!");
+        // console.log("player 1 wins!");
         $( "#dialog-finalGameResult" ).text("Player 1 Wins--Great big globs of greasy, grimy, gopher guts!");
 
         } else if (player2Score > player1Score) {
-          console.log("player 2 wins!");
+          // console.log("player 2 wins!");
           $( "#dialog-finalGameResult" ).text("Player 2 Wins--Great big globs of greasy, grimy, gopher guts!");
         } else {
-          console.log("It's a tie!");
+          // console.log("It's a tie!");
           $( "#dialog-finalGameResult" ).text("Time for a shoot out! Tie Game.");
 
         }
@@ -87,16 +87,17 @@ $( document ).ready(function() {
     function incrementScore() {
       if (currentPlayer === 1) {
         player1Score++;
-        document.getElementById('play1Score').textContent = "Player 1 Score: "+player1Score;
+        document.getElementById("play1Score").textContent = "Player 1 Score: "+player1Score;
       } else {
         player2Score++;
-        document.getElementById('play2Score').textContent = "Player 2 Score: "+player2Score;
+        document.getElementById("play2Score").textContent = "Player 2 Score: "+player2Score;
       }
     }
 
     function showMole() {
+      var mole1Position;
       if (Math.random() > 0.5 ) {
-        var mole1Position = Math.round(Math.random()*15);
+        mole1Position = Math.round(Math.random()*15);
         $("#mole"+mole1Position).addClass("moleShow");
         $("#mole"+mole1Position).removeClass("moleGrass");
         hideMoles(mole1Position);
