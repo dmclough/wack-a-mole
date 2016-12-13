@@ -1,29 +1,24 @@
-body {
-  background-color: #C0D890;
-}
+
 
 #landingContainer {
-  border: 1px solid red;
   width: 490px;
   height: auto;
   margin: 0 auto;
+  /*background-color: #C0D890;*/
 }
 
-#dialog {
-  background: gray;
-  height: 300px;
-  width: 500px;
-}
 
-.no-close .ui-dialog-titlebar-close {
+/*.no-close .ui-dialog-titlebar-close {
   display: none;
-}
+}*/
 
 .moleGrass {
-  /*display: inline-block;*/
   float: left;
+  /*display: inline-block;*/
   width: 120px;
   height: 40px;
+  /*content: "";*/
+  background-color: #C0D890;
 }
 
 .moleShow {
@@ -35,6 +30,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../img/caddy.png")
+
 }
 
 .score {

@@ -15,7 +15,7 @@ $( document ).ready(function() {
       countDown = setInterval(tick, showInterval);
     });
 
-    function startGame(){
+    function startGame() {
       countDown = setInterval(tick, showInterval);
     }
 
@@ -110,6 +110,37 @@ $( document ).ready(function() {
         $("#mole"+mole1Position).addClass("moleGrass");
       }, hideDelay);
     }
+
+    $( function() {
+    $( "#dialog-instructions" ).dialog({
+      autoOpen: true,
+      resizable: false,
+      draggable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      buttons: {
+        "Player 1 Ready!": function() {
+          $( this ).dialog( "close" );
+          startGame();
+        }
+        }
+      });
+    } );
+
+    $( function() {
+    $( "#dialog-player1Result" ).dialog({
+      autoOpen: false,
+      resizable: false,
+      draggable: false,
+      modal: true,
+      buttons: {
+        Ok: function() {
+          $( this ).dialog( "close" );
+          }
+        }
+      });
+    } );
 
 //Start document ready brackets
 });

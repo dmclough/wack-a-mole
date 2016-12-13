@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Wack a Mole</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/mole.js"></script>
@@ -11,14 +12,19 @@
   </head>
   <body>
 
-    
+    <div id="dialog-instructions" title="Instructions">
+      <p><span class="" style="float:left; margin:12px 12px 20px 0; background-color: gray;"></span>Here is where you learn how to play!</p>
+    </div>
+    <div id="dialog-player1Result" title="First Round Results">
+      <p><span class="" style="float:left; margin:12px 12px 20px 0; background-color: gray;"></span>Player one scored FOO moles!</p>
+    </div>
+
 
     <div id="landingContainer">
       <h4>Get Dat Gopha'!</h4>
 
       <button id="startGame">Player 1 Start</button>
 
-      <div id="molePatch" class="molePatch">
 
 
         <div id="timeRemaining"></div>
@@ -27,9 +33,9 @@
           <div id="play2Score" class="score">Player 2 Score: </div>
         </div>
 
-
+      <div id="molePatch" class="molePatch">
         <div id="mole0" class="moleGrass"></div>
-        <div id="mole1" class="moleGrass"></div>
+        <div id="mole1" class="moleGrass"> </div>
         <div id="mole2" class="moleGrass"></div>
         <div id="mole3" class="moleGrass"></div>
         <div id="mole4" class="moleGrass"></div>
@@ -45,6 +51,7 @@
         <div id="mole14" class="moleGrass"></div>
         <div id="mole15" class="moleGrass"></div>
       </div>
+
     </div>
 
   </body>
