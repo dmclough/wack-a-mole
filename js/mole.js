@@ -11,34 +11,6 @@ $( document ).ready(function() {
     currentPlayer = 1; //player one starts
     document.getElementById('timeRemaining').textContent = "Time remaining: " +time;
 
-    $( "#instructionDialog" ).dialog({
-       autoOpen: true,
-       modal: true,
-       buttons: [
-        {
-          text: "I'm Ready to Play!",
-          click: function() {
-            $( this ).dialog( "close" );
-            $( this ).dialog( startGame());
-          }
-        }
-      ]
-    });
-
-    $( "#player1FinishDialog" ).dialog({
-       autoOpen: false,
-       modal: true,
-       buttons: [
-        {
-          text: "Play 1 score" + player1Score,
-          click: function() {
-            $( this ).dialog( "close" );
-            $( this ).dialog( startPlayer2()); 
-          }
-        }
-      ]
-    });
-
     $("#startGame").click(function(){
       countDown = setInterval(tick, showInterval);
     });
@@ -70,8 +42,7 @@ $( document ).ready(function() {
       }
       if (currentPlayer === 1) {
         currentPlayer = 2;
-        $( "#player1FinishDialog" ).dialog( "open" );
-        // startPlayer2();
+         startPlayer2();
       } else {
         checkWinner();
       }
@@ -84,7 +55,7 @@ $( document ).ready(function() {
 
     function startPlayer2() {
       // $( "#player1FinishDialog" ).dialog( "open" );
-      //alert("player 2's turn");
+      alert("player 2's turn");
       time = initialTime;
       countDown = setInterval(tick, showInterval);
     }
