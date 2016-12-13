@@ -41,14 +41,12 @@ $( document ).ready(function() {
 
     function endGame() {
       clearInterval(countDown);
-      for (var i = 0; i <=15; i++) {
-        $("#mole"+i).removeClass("moleShow");
-        $("#mole"+i).addClass("moleGrass");
-      }
+      $("#molePatch div").removeClass("MoleShow");
+      $("#molePatch div").addClass("MoleGrass");
       if (currentPlayer === 1) {
         currentPlayer = 2;
         $('#dialog-player1Result').dialog('open');
-          $( "#dialog-player1Result" ).text("Player 2's Turn: Go get 'em gophers, ya great git! The little brown furry rodents!");
+        $( "#dialog-player1Result" ).text("Player 2's Turn: Go get 'em gophers, ya great git! The little brown furry rodents!");
       } else {
         $('#dialog-finalGameResult').dialog('open');
         checkWinner();
