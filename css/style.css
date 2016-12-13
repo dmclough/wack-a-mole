@@ -1,56 +1,42 @@
-
-
 #landingContainer {
-  width: 490px;
-  height: auto;
-  margin: 0 auto;
-  /*background-color: #C0D890;*/
-}
-
-
-/*.no-close .ui-dialog-titlebar-close {
-  display: none;
-}*/
-
+    width: 490px;
+    height: auto;
+    margin: 0 auto;
+    /*background-color: #C0D890;*/
+  }
 .moleGrass {
-  float: left;
-  /*display: inline-block;*/
-  width: 120px;
-  height: 120px;
-  /*content: "";*/
-  background-color: #C0D890;
-}
-
+    float: left;
+    /*display: inline-block;*/
+    width: 120px;
+    height: 120px;
+    /*content: "";*/
+    background-color: #C0D890;
+  }
 .moleShow {
-  float: left;
-  width: 120px;
-  height: 120px;
-  background-color: #C0D890;
-  background-size: 80px 60px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url("../img/caddy.png")
-}
-
+    float: left;
+    width: 120px;
+    height: 120px;
+    background-color: #C0D890;
+    background-size: 80px 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/caddy.png")
+  }
 body {
-color: white;
-background-repeat: no-repeat;
-background-size: cover;
-background-image: url("../img/molegrass.png");
-}
-
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../img/molegrass.png");
+  }
 .score {
-  border: 1px solid grey;
-  display: inline-block;
-  width: 48%;
-  text-align: center;
-  font-size: 30px;
-}
-
-
-
+    border: 1px solid grey;
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+    font-size: 30px;
+  }
 #timeRemaining {
-  text-align: center;
-  font-size: 40px;
-  padding: 15px;
-}
+    text-align: center;
+    font-size: 40px;
+    padding: 15px;
+  }

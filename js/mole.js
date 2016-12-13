@@ -1,9 +1,9 @@
 $( document ).ready(function() {
     console.log("document is ready");
 
-    var initialTime = 20;
-    time = initialTime;
-    var showInterval = 250;
+    var INITIAL_TIME = 20;
+    var time = INITIAL_TIME;
+    var SHOW_INTERVAL = 250;
     var countdown;
     var mole1Position;
     player1Score = 0;
@@ -11,11 +11,8 @@ $( document ).ready(function() {
     currentPlayer = 1; //player one starts
     document.getElementById('timeRemaining').textContent = "Time remaining: " +time;
 
-
-
-
     function resetGame() {
-      time = initialTime;
+      time = INITIAL_TIME;
       player1Score = 0;
       player2Score = 0;
       currentPlayer = 1;
@@ -24,11 +21,11 @@ $( document ).ready(function() {
     }
 
     function startGame() {
-      countDown = setInterval(tick, showInterval);
+      countDown = setInterval(tick, SHOW_INTERVAL);
     }
 
     function tick() {
-      time = time - 0.25;
+      time = time - 0.250; //only subtracts 0.250 becuase interval runs 4x per second.
       console.log(time);
       document.getElementById('timeRemaining').textContent = "Time remaining: " + Math.round(time);
       gameOverCheck(time);
@@ -44,7 +41,7 @@ $( document ).ready(function() {
 
     function endGame() {
       clearInterval(countDown);
-      for (i = 0; i <=15; i++) {
+      for (var i = 0; i <=15; i++) {
         $("#mole"+i).removeClass("moleShow");
         $("#mole"+i).addClass("moleGrass");
       }
@@ -61,11 +58,9 @@ $( document ).ready(function() {
 
     function startPlayer2() {
       console.log("player 2's turn");
-      time = initialTime;
-      countDown = setInterval(tick, showInterval);
+      time = INITIAL_TIME;
+      countDown = setInterval(tick, SHOW_INTERVAL);
     }
-
-
 
     function checkWinner() {
       if (player1Score > player2Score) {
@@ -81,7 +76,6 @@ $( document ).ready(function() {
 
         }
       }
-
 
     $( "#molePatch" ).children().click(function() {
       if ( $( this ).hasClass( "moleShow" ) ) {
@@ -102,19 +96,14 @@ $( document ).ready(function() {
       }
     }
 
-
-    //this function shows the mole
     function showMole() {
       if (Math.random() > 0.5 ) {
         var mole1Position = Math.round(Math.random()*15);
-        // console.log("mole 1 position: " + mole1Position);
         $("#mole"+mole1Position).addClass("moleShow");
         $("#mole"+mole1Position).removeClass("moleGrass");
         hideMoles(mole1Position);
         return mole1Position;
       }
-
-
     }
 
     function hideMoles(mole1Position) {
@@ -141,9 +130,6 @@ $( document ).ready(function() {
         }
       });
     } );
-
-    // $( "#dialog-instructions" ).text("asdf asdf");
-
 
     $( function() {
     $( "#dialog-player1Result" ).dialog({
