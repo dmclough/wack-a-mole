@@ -9,13 +9,43 @@ $( document ).ready(function() {
     player1Score = 0;
     player2Score = 0;
     currentPlayer = 1; //player one starts
+    document.getElementById('timeRemaining').textContent = "Time remaining: " +time;
 
-    countDown = setInterval(tick, showInterval);
+    $( "#instructionDialog" ).dialog({
+       autoOpen: true,
+       modal: true,
+       buttons: [
+        {
+          text: "I'm Ready to Play!",
+          click: function() {
+            $( this ).dialog( "close" );
+            $( this ).dialog( startGame());
+          }
+        }
+      ]
+    });
 
-    function showInstructionState() {
+    $( "#player1FinishDialog" ).dialog({
+       autoOpen: false,
+       modal: true,
+       buttons: [
+        {
+          text: "Play 1 score" + player1Score,
+          click: function() {
+            $( this ).dialog( "close" );
+            $( this ).dialog( startPlayer2()); 
+          }
+        }
+      ]
+    });
 
+    $("#startGame").click(function(){
+      countDown = setInterval(tick, showInterval);
+    });
+
+    function startGame(){
+      countDown = setInterval(tick, showInterval);
     }
-
 
     function tick() {
       time--;
@@ -40,7 +70,8 @@ $( document ).ready(function() {
       }
       if (currentPlayer === 1) {
         currentPlayer = 2;
-        startPlayer2();
+        $( "#player1FinishDialog" ).dialog( "open" );
+        // startPlayer2();
       } else {
         checkWinner();
       }
@@ -52,10 +83,13 @@ $( document ).ready(function() {
     // tick();// restart the interval and then give it function tick
 
     function startPlayer2() {
-      alert("player 2's turn");
+      // $( "#player1FinishDialog" ).dialog( "open" );
+      //alert("player 2's turn");
       time = initialTime;
       countDown = setInterval(tick, showInterval);
     }
+
+
 
     function checkWinner() {
       if (player1Score > player2Score) {
@@ -80,10 +114,10 @@ $( document ).ready(function() {
     function incrementScore() {
       if (currentPlayer === 1) {
         player1Score++;
-        document.getElementById('play1Score').textContent = "Player 1: "+player1Score;
+        document.getElementById('play1Score').textContent = "Player 1 Score: "+player1Score;
       } else {
         player2Score++;
-        document.getElementById('play2Score').textContent = "Player 2: "+player2Score;
+        document.getElementById('play2Score').textContent = "Player 2 Score: "+player2Score;
       }
     }
 

@@ -1,7 +1,22 @@
+body {
+  background-color: #C0D890;
+}
+
 #landingContainer {
   border: 1px solid red;
-  width: 500px;
+  width: 490px;
+  height: auto;
   margin: 0 auto;
+}
+
+#dialog {
+  background: gray;
+  height: 300px;
+  width: 500px;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
 }
 
 .moleGrass {
@@ -9,25 +24,27 @@
   float: left;
   width: 120px;
   height: 40px;
-  background-color: green;
 }
 
 .moleShow {
   float: left;
   width: 120px;
   height: 40px;
-  background-color: red;
+  background-color: #C0D890;
   background-size: 80px 60px;
   background-repeat: no-repeat;
-  background-image: url("../img/mole.jpeg")
-
+  background-position: center;
+  background-image: url("../img/caddy.png")
 }
 
 .score {
   border: 1px solid grey;
+  display: inline-block;
+  width: 48%;
 }
 
-.molePatch {
-  border: 1px solid purple;
-  border-radius: 30px;
+
+
+#timeRemaining {
+  text-align: center;
 }
