@@ -11,6 +11,8 @@ $( document ).ready(function() {
     currentPlayer = 1; //player one starts
     document.getElementById("timeRemaining").textContent = "Time remaining: " +time;
 
+    resetGame();
+
     function resetGame() {
       time = INITIAL_TIME;
       player1Score = 0;
@@ -25,8 +27,7 @@ $( document ).ready(function() {
     }
 
     function tick() {
-      time = time - 0.250; //only subtracts 0.250 becuase interval runs 4x per second.
-      // console.log(time);
+      time = time - (SHOW_INTERVAL/1000); //only subtracts 0.250 becuase interval runs 4x per second. Want to keep the seconds count accurate.
       document.getElementById("timeRemaining").textContent = "Time remaining: " + Math.round(time);
       gameOverCheck(time);
     }
@@ -55,7 +56,6 @@ $( document ).ready(function() {
     }
 
     function startPlayer2() {
-      // console.log("player 2's turn");
       time = INITIAL_TIME;
       countDown = setInterval(tick, SHOW_INTERVAL);
     }
@@ -74,15 +74,6 @@ $( document ).ready(function() {
 
         }
       }
-
-    $( "#molePatch" ).children().click(function() {
-      if ( $( this ).hasClass( "moleShow" ) ) {
-        console.log("you wacked a mole");
-        $(this).removeClass("moleShow");
-        $(this).addClass("moleGrass");
-        incrementScore();
-      }
-    });
 
     function incrementScore() {
       if (currentPlayer === 1) {
@@ -113,6 +104,14 @@ $( document ).ready(function() {
       }, hideDelay);
     }
 
+    $( "#molePatch" ).children().click(function() {
+      if ( $(this).hasClass("moleShow") ) {
+        $(this).removeClass("moleShow");
+        $(this).addClass("moleGrass");
+        incrementScore();
+      }
+    });
+
     $( function() {
     $( "#dialog-instructions" ).dialog({
       autoOpen: true,
@@ -130,8 +129,8 @@ $( document ).ready(function() {
       });
     } );
 
-    $( function() {
-    $( "#dialog-player1Result" ).dialog({
+    $(function() {
+    $("#dialog-player1Result").dialog({
       autoOpen: false,
       resizable: false,
       draggable: false,
@@ -146,7 +145,7 @@ $( document ).ready(function() {
     } );
 
     $( function() {
-    $( "#dialog-finalGameResult" ).dialog({
+    $("#dialog-finalGameResult").dialog({
       autoOpen: false,
       resizable: false,
       draggable: false,
