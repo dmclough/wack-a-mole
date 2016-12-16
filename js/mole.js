@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     console.log("document is ready");
 
-    var INITIAL_TIME = 6;
+    var INITIAL_TIME = 20;
     var time = INITIAL_TIME;
     var SHOW_INTERVAL = 250;
     var countdown;
@@ -63,17 +63,17 @@ $( document ).ready(function() {
     function checkWinner() {
       if (player1Score > player2Score) {
         // console.log("player 1 wins!");
-        $( "#dialog-finalGameResult" ).text("Player 1 Wins--Great big globs of greasy, grimy, gopher guts!");
+        $("#dialog-finalGameResult").text("Player 1 Wins--Great big globs of greasy, grimy, gopher guts!");
 
-        } else if (player2Score > player1Score) {
+      } else if (player2Score > player1Score) {
           // console.log("player 2 wins!");
-          $( "#dialog-finalGameResult" ).text("Player 2 Wins--Great big globs of greasy, grimy, gopher guts!");
-        } else {
+          $("#dialog-finalGameResult").text("Player 2 Wins--Great big globs of greasy, grimy, gopher guts!");
+      } else {
           // console.log("It's a tie!");
-          $( "#dialog-finalGameResult" ).text("Time for a shoot out! Tie Game.");
+          $("#dialog-finalGameResult").text("Time for a shoot out! Tie Game.");
 
-        }
       }
+    }
 
     function incrementScore() {
       if (currentPlayer === 1) {
@@ -104,7 +104,7 @@ $( document ).ready(function() {
       }, hideDelay);
     }
 
-    $( "#molePatch" ).children().click(function() {
+    $("#molePatch").children().click(function() {
       if ( $(this).hasClass("moleShow") ) {
         $(this).removeClass("moleShow");
         $(this).addClass("moleGrass");
@@ -112,8 +112,8 @@ $( document ).ready(function() {
       }
     });
 
-    $( function() {
-    $( "#dialog-instructions" ).dialog({
+    $(function() {
+    $("#dialog-instructions").dialog({
       autoOpen: true,
       resizable: false,
       draggable: false,
@@ -122,7 +122,7 @@ $( document ).ready(function() {
       modal: true,
       buttons: {
         "Player 1 Ready!": function() {
-          $( this ).dialog( "close" );
+          $(this).dialog("close");
           startGame();
         }
         }
@@ -144,7 +144,7 @@ $( document ).ready(function() {
       });
     } );
 
-    $( function() {
+    $(function() {
     $("#dialog-finalGameResult").dialog({
       autoOpen: false,
       resizable: false,
@@ -154,10 +154,8 @@ $( document ).ready(function() {
         "Restart Game": function() {
           checkWinner();
           $( this ).dialog( "close" );
-
           resetGame();
           startGame();
-          // resetGame();
           }
         }
       });

@@ -1,29 +1,42 @@
+h1 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 35px;
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+
 #landingContainer {
     width: 490px;
     height: auto;
     margin: 0 auto;
   }
-.moleGrass {
-    float: left;
-    width: 120px;
-    height: 120px;
-    background-color: #C0D890;
-  }
+
+  .moleGrass {
+      float: left;
+      width: 120px;
+      height: 120px;
+      background-color: #C0D890;
+    }
+
 .moleShow {
     float: left;
     width: 120px;
     height: 120px;
     background-color: #C0D890;
-    background-size: 90px 110px;
+    background-size: 115px 100px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("../img/caddy.png")
+    background-image: url("../img/gopher.png")
   }
 body {
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../img/molegrass.png");
+  background-image: url("../img/molegrasscut.png");
   }
 .score {
     border: 1px solid grey;
